@@ -9,11 +9,13 @@ HTML / CSS を中心に制作し、自己紹介や制作物をまとめていま
 
 ## 📂 ファイル構成
 my-portfolio/
+
 ├── index.html # メインページ
+
 ├── portfolio.css # スタイルシート
+
 └── images/ # 画像ファイルを格納
 
-コードをコピーする
 
 ## 🛠 使用技術
 - HTML5
