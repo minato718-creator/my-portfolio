@@ -1,4 +1,4 @@
-/* 全体のリセット */
+/* ===== 全体リセット ===== */
 * {
   margin: 0;
   padding: 0;
@@ -10,23 +10,31 @@ html, body {
   height: 100%;
   font-family: "Hiragino Mincho ProN", serif;
   color: #340000;
+  font-size: 16px; /* 基本本文サイズ */
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== サイドメニュー ===== */
 .side-menu {
+  display: block;
   position: fixed;
-  top: 40%;            /* 縦中央に */
-  right: 20px;         /* 右からの余白 */
-  transform: translateY(-50%); /* 完全に中央揃え */
+  top: 40%;
+  right: 20px;
+  transform: translateY(-50%);
 }
 
 .side-menu ul {
   display: flex;
-  flex-direction: column; /* 縦並び */
-  gap: 1rem;              /* メニュー間の間隔 */
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .side-menu li {
-    margin: 0 0 25px;
+  margin: 0 0 25px;
 }
 
 .side-menu li a {
@@ -43,6 +51,59 @@ html, body {
   border-radius: 5px;
 }
 
+/* ===== ハンバーガー＆モバイルメニュー ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #f8f8f8;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  transition: right 0.3s ease;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+/* ===== Hero セクション ===== */
 .hero {
   height: 100vh;
   display: flex;
@@ -61,14 +122,13 @@ p {
   font-size: 1.2rem;
 }
 
-/* 一文字ごとの基本スタイル */
+/* ===== フェードイン文字 ===== */
 .char {
   display: inline-block;
   opacity: 0;
-  transform: translateY(-10px); /* 上から軽く落ちてくる感じ */
+  transform: translateY(-10px);
 }
 
-/* フェードイン＋少し落ちる動き */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -76,21 +136,22 @@ p {
   }
 }
 
+/* ===== 線 ===== */
 .line {
-  width: 100%;                        /* 横幅いっぱい */
-  height: 10px;                        /* 線の高さ（お好みで調整） */
-  background-image: url("images/line2.png"); /* 単純な線画像 */
-  background-repeat: repeat-x;         /* 横方向に繰り返す */
-  background-position: top;            /* 上端に揃える */
-  background-size: auto 10px;           /* 高さに合わせる */
+  width: 100%;
+  height: 10px;
+  background-image: url("images/line2.png");
+  background-repeat: repeat-x;
+  background-position: top;
+  background-size: auto 10px;
   background-color: #f7f4e6;
-  margin: 0;                      /* 上下に余白をつける */
+  margin: 0;
 }
 
-/* 続きコンテンツは普通にスクロールさせる */
+/* ===== コンテンツ ===== */
 .content {
-  padding: 50px 13%; /* 左右はスケッチブック余白に合わせる */
-  background-color: #f7f4e6; /* 紙っぽい背景にしたい場合 */
+  padding: 50px 13%;
+  background-color: #f7f4e6;
 }
 
 .content h2 {
@@ -103,54 +164,34 @@ p {
 }
 
 .about {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
 }
 
 .images-column {
   display: flex;
   flex-direction: column;
-  gap: -10px; /* 画像同士の縦間隔 */
+  gap: -10px;
   width: 400px;
 }
 
-.images-column img:nth-child(1) {
-  width: 120px;
-  height: 120px;
-}
-
-.images-column img:nth-child(2) {
-  width: 150px;
-  height: 150px;
-}
-
-.images-column img:nth-child(3) {
-  width: 240px;
-  height: 240px;
-}
-
-.images-column img:nth-child(4) {
-  width: 200px;
-  height: 200px;
-}
+.images-column img:nth-child(1) { width: 120px; height: 120px; }
+.images-column img:nth-child(2) { width: 150px; height: 150px; }
+.images-column img:nth-child(3) { width: 240px; height: 240px; }
+.images-column img:nth-child(4) { width: 200px; height: 200px; }
 
 .circle-img {
-  border-radius: 50%;  /* 丸く切り抜く */
-  object-fit: cover;   /* 画像の切り取りを中央に整える */
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.circle-img.left {
-  align-self: flex-start; /* 左寄せ */
-}
-
-.circle-img.right {
-  align-self: flex-end;   /* 右寄せ */
-}
+.circle-img.left { align-self: flex-start; }
+.circle-img.right { align-self: flex-end; }
 
 .text-column {
-  flex: 1; /* 文章部分を残り幅いっぱいに広げる */
-  font-size: 16px;
+  flex: 1;
+  font-size: 1rem;
 }
 
 .images-port {
@@ -160,50 +201,31 @@ p {
 }
 
 .pc-image-container {
-    text-align: center; /* 中央揃え */
-    margin-bottom: 60px; /* 下に余白を確保 */
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .banner-button {
-    display: block;
-    margin: 25px auto 0;
-    text-align: center;
-    width: max-content;
-    padding: 14px 36px; /* ボタンの大きさ */
-    background: linear-gradient(135deg, #ff7f50, #ff6347); /* グラデーション */
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  display: block;
+  margin: 25px auto 0;
+  text-align: center;
+  width: max-content;
+  padding: 14px 36px;
+  background: linear-gradient(135deg, #ff7f50, #ff6347);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
 
 .banner-button:hover {
-    background: linear-gradient(135deg, #ff6347, #ff4500);
-    transform: translateY(-3px); /* 少し浮く感じ */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #ff6347, #ff4500);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
-
-#Portfolio .text-column p {
-  font-size: 1rem;
-}
-
-#Portfolio .text-column b,
-#Portfolio .text-column strong {
-  font-size: 1.2rem;
-}
-
-#Portfolio2 .text-column p {
-  font-size: 1rem;
-}
-
-#Portfolio2 .text-column b,
-#Portfolio2 .text-column strong {
-  font-size: 1.2rem;
-}
-
 
 /* ===== トップへ戻るボタン ===== */
 .back-to-top {
@@ -232,6 +254,65 @@ p {
   pointer-events: auto;
 }
 
-.back-to-top:hover {
-  background: #560000;
+.back-to-top:hover { background: #560000; }
+
+/* ===== モバイル版 ===== */
+@media (max-width: 768px) {
+  body { font-size: 16px; line-height: 1.5; }
+
+  /* heroセクション文字を上にあげる */
+  .hero {
+    justify-content: flex-start;
+    padding-left: 5%;
+    padding-top: 110px;
+    padding-bottom: 0;
+  }
+
+  .hero h1 { font-size: 2.5rem; }
+  .hero p { font-size: 1rem; }
+
+  .about {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .images-column {
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .images-column img { 
+    width: 80%; height: auto;
+  }
+
+  .images-port {
+    width: 100%;
+    height: auto;
+  }
+
+  .content {
+    padding: 30px 5%;
+  }
+
+  .side-menu { display: none; }
+
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+
+  #Portfolio .text-column p,
+  #Portfolio2 .text-column p {
+    font-size: 0.9rem;
+  }
+
+  #Portfolio .text-column b,
+  #Portfolio .text-column strong,
+  #Portfolio2 .text-column b,
+  #Portfolio2 .text-column strong {
+    font-size: 1rem;
+  }
 }
