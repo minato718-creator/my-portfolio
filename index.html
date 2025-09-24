@@ -7,21 +7,42 @@
     <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
-  <header class="side-menu">
+  <header>
+   <!-- PC用メニュー -->
+   <nav class="side-menu">
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#Portfolio">Portfolio</a></li>
       <li><a href="#Reflection">Reflection</a></li>
     </ul>
+   </nav>
+
+    <!-- ハンバーガーメニュー用 -->
+   <div class="hamburger" id="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+   </div>
+
+   <nav class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#Portfolio">Portfolio</a></li>
+      <li><a href="#Reflection">Reflection</a></li>
+    </ul>
+   </nav>
   </header>
 
+  <!-- メインコンテンツ -->
   <main id="home" class="hero">
     <!-- スケッチブックの紙に文字を書いていく -->
     <h1 class="reveal-text" data-text="Portfolio"></h1>
     <p class="reveal-text" data-text="Serika　Tonami　　～2025～"></p>
   </main>
-
+   
+  <!-- about me -->
     <section id="about" class="content">
     <h2>About Me</h2>
     <div class="about">
@@ -47,12 +68,13 @@
 
     <div class="line"></div>
 
+    <!-- ポートフォリオ -->
     <section id="Portfolio" class="content">
     <h2>Portfolio</h2>
     <div class="about">
         <div class="text-column">
             <p>
-              <b>１作品目</b>
+              <b>１作品目</b><br>
               <strong>架空サイト：</strong>チューリップこども園　(トップページ)<br>
               <br>
               <strong>ターゲット：</strong>園を探している保護者、在園中の保護者
@@ -88,11 +110,12 @@
 
     <div class="line"></div>
 
+    <!-- ポートフォリオ２ -->
     <section id="Portfolio2" class="content">
     <div class="about">
         <div class="text-column">
             <p>
-              <b>２作品目</b>
+              <b>２作品目</b><br>
               <strong>架空サイト：</strong>ぬいぐつや　(トップページとコンタクトページ)<br>
               <br>
               <strong>ターゲット：</strong>大人の「ぬい活」を楽しむ方(２０代後半～６０代女性)
@@ -130,6 +153,7 @@
 
      <div class="line"></div>
 
+     <!-- Reflection -->
     <section id="Reflection" class="content">
     <h2>Reflection</h2>
     <div class="about">
@@ -148,20 +172,25 @@
         </div>
     </div>
     </section>
-  <script src="portfolio.js" defer></script>
 
-  <!-- JS無効時の簡易フォールバック：アニメ無しで全文を表示 -->
-  <noscript>
-    <style>
-      .reveal { opacity: 1 !important; transform: none !important; }
-      .char { opacity: 1 !important; transform: none !important; }
-    </style>
-    <div style="position:fixed; left:0; right:0; bottom:8px; text-align:center; font-size:14px; color:#fff;">
-      ※このページは JavaScript を使ってアニメーション表示します。JS が無効な場合は静的に表示されます。
-    </div>
-  </noscript>
-  <button class="back-to-top" id="backToTop" aria-label="トップへ戻る">
-  ↑
-  </button>
+    <!-- トップへ戻るボタン -->
+      <button class="back-to-top" id="backToTop" aria-label="トップへ戻る">
+        ↑
+      </button>
+
+    <!-- JSまとめ -->
+      <script src="portfolio.js" defer></script>
+
+    <!-- JS無効時の簡易フォールバック：アニメ無しで全文を表示 -->
+       <noscript>
+        <style>
+         .reveal { opacity: 1 !important; transform: none !important; }
+         .char { opacity: 1 !important; transform: none !important; }
+        </style>
+        <div style="position:fixed; left:0; right:0; bottom:8px; text-align:center; font-size:14px; color:#fff;">
+          ※このページは JavaScript を使ってアニメーション表示します。JS が無効な場合は静的に表示されます。
+        </div>
+       </noscript>
+
 </body>
 </html>
